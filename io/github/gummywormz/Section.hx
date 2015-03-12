@@ -2,7 +2,7 @@ package io.github.gummywormz;
 import io.github.gummywormz.CoreTypes.*;
 	
 /**
- * Describes a section of the 
+ * Describes a section of the file
  * @author Paul Alves
  */
 class Section
@@ -12,8 +12,8 @@ class Section
 	var _valList : List<ValueInfo>;
 
 	/**
-	 * Constructs a new 
-	 * @param	hf
+	 * Constructs a new Section
+	 * @param	hf The header and footer that identifies this section
 	 */
 	public function new(hf:HeaderFooter) 
 	{
@@ -39,6 +39,10 @@ class Section
 		_valList.add();
 	}
 	
+	/**
+	 * Returns the entire list of values
+	 * @return the entire list of values
+	 */
 	public function returnList()
 	{
 		return _valList;
