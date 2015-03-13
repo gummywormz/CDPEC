@@ -2,20 +2,20 @@
 <project version="2">
   <!-- Output SWF options -->
   <output>
-    <movie outputType="CustomBuild" />
+    <movie outputType="Application" />
     <movie input="" />
-    <movie path="" />
+    <movie path="gen" />
     <movie fps="0" />
     <movie width="0" />
     <movie height="0" />
     <movie version="1" />
     <movie minorVersion="0" />
-    <movie platform="JavaScript" />
+    <movie platform="Java" />
     <movie background="#FFFFFF" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
-    <class path="." />
+    <class path="io\github\gummywormz" />
   </classpaths>
   <!-- Build options -->
   <build>
@@ -24,7 +24,7 @@
     <option noInlineOnDebug="False" />
     <option mainClass="" />
     <option enabledebug="False" />
-    <option additional="" />
+    <option additional="-main io.github.gummywormz.Test" />
   </build>
   <!-- haxelib libraries -->
   <haxelib>
@@ -45,7 +45,7 @@
   <!-- Other project options -->
   <options>
     <option showHiddenPaths="False" />
-    <option testMovie="Default" />
+    <option testMovie="Unknown" />
     <option testMovieCommand="" />
   </options>
   <!-- Plugin storage -->

@@ -1,6 +1,27 @@
 package io.github.gummywormz;
-import io.github.gummywormz.CoreTypes.*;
-	
+
+/**
+* Describes a header and footer for this section
+* @param header The header / opening tag
+* @param footer The footer / closing tag
+*/
+typedef HeaderFooter = 
+{
+	var header : String;
+	var footer : String;
+};
+
+/**
+* Describes a value
+* @param name The name of the value
+* @param restrictor The restrictor
+*/
+typedef ValueInfo = 
+{
+	var name : String;
+	var restrictor : Restrictors;
+};
+
 /**
  * Describes a section of the file
  * @author Paul Alves
@@ -18,7 +39,7 @@ class Section
 	public function new(hf:HeaderFooter) 
 	{
 		setHeaderFooter(hf);
-		_valList = new List<ValueInfo>;
+		_valList = new List<ValueInfo>();
 	}
 	
 	/**
@@ -36,7 +57,7 @@ class Section
 	 */
 	public function addValue(val:ValueInfo)
 	{
-		_valList.add();
+		_valList.add(val);
 	}
 	
 	/**
@@ -46,6 +67,11 @@ class Section
 	public function returnList()
 	{
 		return _valList;
+	}
+	
+	static function main()
+	{
+		trace("test");
 	}
 	
 }

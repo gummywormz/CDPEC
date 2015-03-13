@@ -1,11 +1,9 @@
 package io.github.gummywormz;
 
 /**
- * Provides custom types for use in this parser
  * @author Paul Alves
  */
 
- 
 /**
 * Enum for value restrictors. These are applied at parse time and throw
 * a "ValueRestrictionException" if the value doesn't apply
@@ -26,27 +24,4 @@ enum Restrictors
 	EndingRestrictor(end:String);
 	StartingRestrictor(start:String);
 	RegexRestrictor(regex:EReg);
-}
-
-/**
-* Describes a header and footer for this section
-* @param header The header / opening tag
-* @param footer The footer / closing tag
-*/
-typedef HeaderFooter = 
-{
-	var header : String;
-	var footer : String;
-}
-	
-	
-/**
-* Describes a value
-* @param name The name of the value
-* @param restrictor The restrictor
-*/
-typedef ValueInfo = 
-{
-	var name : String;
-	var restrictor : Restrictors;
 }
