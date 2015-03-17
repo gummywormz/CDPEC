@@ -3,6 +3,8 @@ package io.github.gummywormz;
  * Main parser object
  * @author Paul Alves
  */
+
+ Using StringTools;
 class MainParser
 {
 	
@@ -20,5 +22,15 @@ class MainParser
 	public function addSection(s:Section)
 	{
 		_sections.add(s);
+	}
+
+	public function parseFile(f:String)
+	{
+		var lSplit = ~/\n?\r;
+		var list = lSplit.split(f);
+		for (e in f)
+		{
+			if (e.startsWith("@") || e.trim()=="")
+		}
 	}
 }
