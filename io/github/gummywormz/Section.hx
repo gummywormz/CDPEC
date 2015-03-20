@@ -69,6 +69,16 @@ class Section
 		return _valList;
 	}
 	
+	public function getHeader()
+	{
+		return _hf.header;
+	}
+	
+	public function getFooter()
+	{
+		return _hf.footer;
+	}
+	
 	static function main()
 	{
 		trace("test");

@@ -32,7 +32,7 @@ class RetrievedData
     return _type;
   }
   
-  public function getValueAsType()
+  public function getValueAsType():Dynamic
   {
     if(_type=="String"){return _value;}
     if(_type=="Float"){return Std.parseFloat(_value);}

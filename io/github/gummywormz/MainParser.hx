@@ -1,10 +1,11 @@
 package io.github.gummywormz;
+import io.github.gummywormz.Section.HeaderFooter;
 /**
  * Main parser object
  * @author Paul Alves
  */
 
- Using StringTools;
+using StringTools;
 class MainParser
 {
 	
@@ -26,11 +27,23 @@ class MainParser
 
 	public function parseFile(f:String)
 	{
-		var lSplit = ~/\n?\r;
+		var lSplit = ~/\n?\r/;
 		var list = lSplit.split(f);
-		for (e in f)
+		var dataList = new List<RetrievedSection>();
+		var isSection = false;
+		var section;
+		for (e in list)
 		{
-			if (e.startsWith("@") || e.trim()=="")
+			if (e.startsWith("@") || e.trim() == "" || e.startsWith("#")) { continue; }
+			for (s in _sections)
+			{
+				if (s.getHeader() == e)
+				{
+					section = new RetrievedSection(new HeaderFooter(s.getHeader,s.getFooter));
+					isSection = true;
+					break;
+				}
+			}
 		}
 	}
 }
