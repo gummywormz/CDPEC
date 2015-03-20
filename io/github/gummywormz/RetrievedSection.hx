@@ -11,9 +11,9 @@ class RetrievedSection
 	var _hf:HeaderFooter;
 	var _dList:List<RetrievedData>;
 	
-	public function new(hf:HeaderFooter) 
+	public function new(header:String,footer:String) 
 	{
-		_hf = hf;
+		_hf = {header: header, footer:footer};
 		_dList = new List<RetrievedData>();
 	}
 	
