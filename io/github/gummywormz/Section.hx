@@ -1,4 +1,5 @@
 package io.github.gummywormz;
+import io.github.gummywormz.Restrictors;
 
 /**
 * Describes a header and footer for this section
@@ -64,7 +65,7 @@ class Section
 	 * Returns the entire list of values
 	 * @return the entire list of values
 	 */
-	public function returnList()
+	public function returnList():List<ValueInfo>
 	{
 		return _valList;
 	}

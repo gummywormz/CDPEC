@@ -36,7 +36,8 @@ class RetrievedData
   {
     if(_type=="String"){return _value;}
     if(_type=="Float"){return Std.parseFloat(_value);}
-    if(_type=="Integer"){return Std.parseInt(_value);}
+    if (_type == "Integer") { return Std.parseInt(_value); }
+	return "Error";
   }
   
   

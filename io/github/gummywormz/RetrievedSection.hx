@@ -1,8 +1,9 @@
 package io.github.gummywormz;
 import io.github.gummywormz.Section.HeaderFooter;
+import io.github.gummywormz.RetrievedData;
 
 /**
- * ...
+ * Represents a list of sections retrieved from the parser
  * @author Paul Alves
  */
 class RetrievedSection

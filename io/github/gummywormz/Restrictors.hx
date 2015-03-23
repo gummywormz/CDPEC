@@ -1,6 +1,7 @@
 package io.github.gummywormz;
 
 /**
+ * Restrictors for values.
  * @author Paul Alves
  */
 
