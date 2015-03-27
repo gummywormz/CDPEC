@@ -4,6 +4,10 @@ import io.github.gummywormz.Section;
 import io.github.gummywormz.Restrictors;
 import io.github.gummywormz.RetrievedData;
 import io.github.gummywormz.RetrievedSection;
+
+import io.github.gummywormz.ValueRestrictionException;
+import io.github.gummywormz.ParserException;
+
 /**
  * Main parser object
  * @author Paul Alves
@@ -15,6 +19,9 @@ class MainParser
 	static var decimal_sep = ".";
 	var _sections : List<Section>;
 
+	/**
+	 * Creates a new section
+	 */
 	public function new() 
 	{
 		_sections = new List<Section>();
@@ -39,24 +46,42 @@ class MainParser
 	{
 		decimal_sep = d;
 	}
-
-	public function parseFile(f:String)
+	
+	/**
+	 * Parses the given file / String, separated by line breaks
+	 * @param	f The string to parse
+	 * @return A list of RetrievedSections
+	 */
+	public function parseFile(f:String):List<RetrievedSection>
 	{
-		var lSplit = ~/\n?\r/; //split on new lines
+		var lSplit = ~/\r\n?|\n/g; //split on new lines
 		var list = lSplit.split(f);
 		var dataList = new List<RetrievedSection>();
 		var isSection = false; //controls the current section
 		var baseSec = new Section({header:"Null",footer:"Null"});
-		var rSection = new RetrievedSection("Null","Null");
+		var rSection = new RetrievedSection("Null", "Null");
+		var lineCount = 0;
 		for (e in list)
 		{
+			lineCount+=1;
 			if (e.startsWith("@") || e.trim() == "" || e.startsWith("#")) { continue; } //skip comment lines and such
-			
+			//trace("test");
 			if(isSection)
 			{
+					//trace("Started parsing section");
 			        var dat = e.split("=");
+					//trace(dat[0] + " " + baseSec.getFooter());
+					if (dat[0] == baseSec.getFooter())
+					{
+						//trace("Ending parsing section");
+						isSection = false;
+						dataList.add(rSection);
+					}else{
+					//trace(dat[0] + " " + dat[1]);
+					if (dat[1] == null) { throw new ParserException('Invalid data encountered @ line $lineCount. Check for missing equals signs and invalid headers or footers.'); }
 			        for(d in baseSec.returnList())
 			        {
+							//trace("Looking at value " + d.name + " " + dat[0]);
 			                if(dat[0] == d.name)
 			                {
 						switch(d.restrictor)
@@ -78,27 +103,28 @@ class MainParser
 								break;
 							case IntegerRestrictor:
 								var data = Std.parseInt(dat[1]);//TODO: figure out what happens when it cant be parsed since it doesn't throw an exception??
+								if (data == null || (data == 0 && dat[1] != "0")) { throw new ValueRestrictionException("Value " + dat[1] + " failed IntegerRestrictor"); }
 								rSection.addData(new RetrievedData(dat[0], "Integer", dat[1]));
 								break;
 							case StrictFloatRestrictor:
 								if(dat[1].indexOf(decimal_sep) == -1){throw new ValueRestrictionException("Value " + dat[1] + " failed StrictFloatRestrictor");}
 							case LaxFloatRestrictor:
 								var dataX = Std.parseFloat(dat[1]);//TODO: figure out what happens when it cant be parsed since it doesn't throw an exception??
+								if ((dataX == 0.0 && dat[1] != "0.0")) { throw new ValueRestrictionException("Value " + dat[1] + " failed LaxFloatRestrictor"); }
 								rSection.addData(new RetrievedData(dat[0], "Float", dat[1]));
 								break;
 						}
 			                }
-							if (dat[0] == baseSec.getFooter())
-							{
-								isSection = false;
-								dataList.add(rSection);
-							}
+							
+							
 			        }
-			}
+			}}
 			for (s in _sections) //find the section the file is referencing
 			{
+				//trace("Looking at section H:" + s.getHeader() + " E:" + e);
 				if (s.getHeader() == e)
 				{
+					//trace("Found section");
 					rSection = new RetrievedSection(s.getHeader(),s.getFooter());
 					isSection = true;
 					baseSec = s;
@@ -108,6 +134,5 @@ class MainParser
 		}
 		return dataList;
 	}
-	
-	static function main(){}
+
 }

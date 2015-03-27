@@ -70,19 +70,22 @@ class Section
 		return _valList;
 	}
 	
+	/**
+	 * Returns the header of this section
+	 * @return the header of this section
+	 */
 	public function getHeader()
 	{
 		return _hf.header;
 	}
 	
+	/**
+	 * Returns the footer of this section
+	 * @return the footer of this section
+	 */
 	public function getFooter()
 	{
 		return _hf.footer;
-	}
-	
-	static function main()
-	{
-		trace("test");
 	}
 	
 }
