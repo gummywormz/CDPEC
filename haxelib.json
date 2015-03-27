@@ -1,0 +1,10 @@
+{
+  "name": "CDPEC",
+  "url" : "https://github.com/gummywormz/CDPEC",
+  "license": "LGPL",
+  "tags": ["cross", "utility"],
+  "description": "Parses Ciencias formatted files, which is an enhanced, simple key-value store format.",
+  "version": "1.0.0",
+  "releasenote": "Initial release.",
+  "contributors": ["gummywormz"],
+}
