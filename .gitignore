@@ -45,3 +45,6 @@ Temporary Items
 # Code generation
 gen/
 *.bak
+.haxelib/
+CDPEC.hxproj
+gen.n
