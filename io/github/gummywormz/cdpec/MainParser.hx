@@ -1,12 +1,12 @@
-package io.github.gummywormz;
-import io.github.gummywormz.Section.HeaderFooter;
-import io.github.gummywormz.Section;
-import io.github.gummywormz.Restrictors;
-import io.github.gummywormz.RetrievedData;
-import io.github.gummywormz.RetrievedSection;
+package cdpec;
+import cdpec.Section.HeaderFooter;
+import cdpec.Section;
+import cdpec.Restrictors;
+import cdpec.RetrievedData;
+import cdpec.RetrievedSection;
 
-import io.github.gummywormz.ValueRestrictionException;
-import io.github.gummywormz.ParserException;
+import cdpec.ValueRestrictionException;
+import cdpec.ParserException;
 
 /**
  * Main parser object

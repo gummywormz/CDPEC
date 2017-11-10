@@ -1,5 +1,5 @@
-package io.github.gummywormz;
-import io.github.gummywormz.Restrictors;
+package cdpec;
+import cdpec.Restrictors;
 
 /**
 * Describes a header and footer for this section

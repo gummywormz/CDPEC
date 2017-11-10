@@ -4,7 +4,7 @@
   "license": "LGPL",
   "tags": ["cross", "utility"],
   "description": "Parses Ciencias formatted files, which is an enhanced, simple key-value store format.",
-  "version": "1.0.0",
-  "releasenote": "Initial release.",
+  "version": "2.0.0",
+  "releasenote": "Fixed fatal bug that prevented multiple entries from being parsed. Added booleanrestrictor",
   "contributors": ["gummywormz"]
 }

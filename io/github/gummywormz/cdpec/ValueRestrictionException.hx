@@ -1,4 +1,4 @@
-package io.github.gummywormz;
+package cdpec;
 
 /**
  * Represents an error while trying to parse values that fail a Restrictor

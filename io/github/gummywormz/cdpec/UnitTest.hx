@@ -1,9 +1,10 @@
-package io.github.gummywormz;
+package cdpec;
 
-import io.github.gummywormz.Section;
-import io.github.gummywormz.MainParser;
-import io.github.gummywormz.Restrictors;
-import io.github.gummywormz.ValueRestrictionException;
+import cdpec.ParserException;
+import cdpec.Section;
+import cdpec.MainParser;
+import cdpec.Restrictors;
+import cdpec.ValueRestrictionException;
 
 /**
  * Tests the parser

@@ -1,4 +1,4 @@
-package io.github.gummywormz;
+package cdpec;
 /**
  * Represents retrieved data
  * @author Paul Alves

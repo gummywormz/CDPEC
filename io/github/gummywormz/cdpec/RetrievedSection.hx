@@ -1,6 +1,6 @@
-package io.github.gummywormz;
-import io.github.gummywormz.Section.HeaderFooter;
-import io.github.gummywormz.RetrievedData;
+package cdpec;
+import cdpec.Section.HeaderFooter;
+import cdpec.RetrievedData;
 
 /**
  * Represents a list of sections retrieved from the parser

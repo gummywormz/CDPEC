@@ -1,4 +1,4 @@
-package io.github.gummywormz;
+package cdpec;
 
 /**
  * Represents an error while parsing the file

@@ -1,4 +1,4 @@
-package io.github.gummywormz;
+package cdpec;
 
 /**
  * Restrictors for values.
